@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" data-accent="coral">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>朝夕 · 倒数日</title>
+  <link rel="icon" type="image/svg+xml" href="../logo.svg">
+  <link rel="stylesheet" href="css/app.css">
+  <script>
+    /* OTools 宿主桥标记：运行时由 js/bridge.js 接管 window.otools / window.utools / Tauri IPC */
+    window.MC = window.MC || {};
+    window.MC.otoolsHost = window.otools || window.utools || null;
+  </script>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 40 40" width="28" height="28" aria-hidden="true">
+            <circle cx="20" cy="19" r="10" fill="none" stroke="currentColor" stroke-width="2.2"/>
+            <path d="M5 27h30" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M20 5v4M20 29v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text"><strong>朝夕</strong><span>DAYMARK</span></div>
+      </div>
+
+      <nav class="nav" id="nav" aria-label="主导航"></nav>
+
+      <div class="sidebar-foot">
+        <button class="float-card" id="float-card" data-action="toggle-float" type="button">
+          <span class="float-card-icon" id="float-card-icon"></span>
+          <span class="float-card-text"><strong id="float-card-title">开启桌面悬浮窗</strong><small id="float-card-sub">小窗口常驻，随手记日子</small></span>
+        </button>
+        <div class="privacy-badge">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <span>本机存储 · 完全离线</span>
+        </div>
+        <span class="side-version">v1.1.0 · 1900–2100 农历</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-title">
+          <h1 id="page-title">今日</h1>
+          <p id="page-sub">把重要的日子，放在看得见的地方</p>
+        </div>
+        <div class="topbar-actions">
+          <span class="date-chip" id="top-date"></span>
+          <button class="icon-btn" data-action="theme-quick" aria-label="切换主题"><span id="theme-icon"></span></button>
+          <button class="btn btn-soft btn-sm" data-action="toggle-float" id="float-btn" type="button">
+            <span id="float-btn-icon"></span><span id="float-btn-text">悬浮窗</span>
+          </button>
+          <button class="btn btn-primary btn-sm" data-action="new-event" type="button">
+            <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            新建日子
+          </button>
+        </div>
+      </header>
+
+      <div id="reminder-slot"></div>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <div id="overlay" class="overlay-root"></div>
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root"></div>
+
+  <script src="js/util.js"></script>
+  <script src="js/bridge.js"></script>
+  <script src="js/calendar-data.js"></script>
+  <script src="js/lunar.js"></script>
+  <script src="js/model.js"></script>
+  <script src="js/demo.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/float.js"></script>
+  <script src="js/card.js"></script>
+  <script src="js/views/onboarding.js"></script>
+  <script src="js/views/today.js"></script>
+  <script src="js/views/events.js"></script>
+  <script src="js/views/editor.js"></script>
+  <script src="js/views/timeline.js"></script>
+  <script src="js/views/insights.js"></script>
+  <script src="js/views/settings.js"></script>
+  <script src="js/views/float.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
